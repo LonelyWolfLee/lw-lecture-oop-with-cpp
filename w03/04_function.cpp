@@ -42,7 +42,6 @@ void push_break(Car &car)
 
 int main()
 {
-  // struct Car car1 = {"no 1", 100, 0};
   Car car1 = {"no 1", 100, 0};
   accel(car1);
   accel(car1);
