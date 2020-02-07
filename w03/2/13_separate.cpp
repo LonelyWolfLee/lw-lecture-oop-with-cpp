@@ -1,28 +1,15 @@
 #include <iostream>
+#include <cstring>
+#include "13_separate.h"
 
 using namespace std;
 
-namespace CAR_CONST
+void Car::init_members(const char *id, int fuel)
 {
-enum
-{
-  ID_LEN = 20,
-  MAX_SPEED = 200,
-  FUEL_STEP = 2,
-  ACCEL_STEP = 10,
-  BREAK_STEP = 10
-};
+  strcpy(gamer_id, id);
+  fuel_gauge = fuel;
+  current_speed = 0;
 }
-struct Car
-{
-  char gamer_id[CAR_CONST::ID_LEN];
-  int fuel_gauge;
-  int current_speed;
-
-  void show_car_state();
-  void accel();
-  void push_break();
-};
 
 void Car::show_car_state()
 {
@@ -58,7 +45,8 @@ void Car::push_break()
 
 int main()
 {
-  Car car1 = {"no 1", 100, 0};
+  Car car1;
+  car1.init_members("no 1", 100);
   car1.accel();
   car1.accel();
   car1.show_car_state();

@@ -13,7 +13,7 @@ enum
   BREAK_STEP = 10
 };
 }
-struct Car
+class Car
 {
   char gamer_id[CAR_CONST::ID_LEN];
   int fuel_gauge;

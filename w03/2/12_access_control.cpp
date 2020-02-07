@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -13,16 +14,26 @@ enum
   BREAK_STEP = 10
 };
 }
-struct Car
+class Car
 {
+private:
   char gamer_id[CAR_CONST::ID_LEN];
   int fuel_gauge;
   int current_speed;
 
+public:
+  void init_members(const char *id, int fuel);
   void show_car_state();
   void accel();
   void push_break();
 };
+
+void Car::init_members(const char *id, int fuel)
+{
+  strcpy(gamer_id, id);
+  fuel_gauge = fuel;
+  current_speed = 0;
+}
 
 void Car::show_car_state()
 {
@@ -58,7 +69,8 @@ void Car::push_break()
 
 int main()
 {
-  Car car1 = {"no 1", 100, 0};
+  Car car1;
+  car1.init_members("no 1", 100);
   car1.accel();
   car1.accel();
   car1.show_car_state();
