@@ -53,7 +53,11 @@ void push_break(Car *car)
 
 int main()
 {
-  Car car1 = {"no 1", 100, 0, show_car_state, accel, push_break};
+  Car car1 = {
+      "no 1", 100, 0,
+      show_car_state,
+      accel,
+      push_break};
   car1.accel(&car1);
   car1.accel(&car1);
   car1.show_car_state(&car1);
