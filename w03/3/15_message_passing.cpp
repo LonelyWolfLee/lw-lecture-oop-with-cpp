@@ -96,7 +96,9 @@ int main(int argc, char const *argv[])
   seller.ShowState();
   buyer.ShowState();
 
+  // 실패 요청
   buyer.Buy(seller, 600);
+  // 성공 요청
   buyer.Buy(seller, 450);
 
   seller.ShowState();
