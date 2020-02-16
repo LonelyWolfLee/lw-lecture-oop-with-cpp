@@ -19,11 +19,11 @@ public:
 class Student : public Person
 {
 public:
-  int Age()
+  int Age() const
   {
     return 15;
   }
-  void WhoAreYou()
+  void WhoAreYou() const
   {
     SayName();
     cout << "I am " << Age() << " years old." << endl;
@@ -35,13 +35,13 @@ class HighschoolStudent : public Student
 public:
   // 함수 오버로딩!
   // Student의 Age를 재사용 하기 위해 Student::Age() 호출
-  int Age()
+  int Age() const
   {
     return Student::Age() + 3;
   }
   // 오버라이딩 한 자신의 Age를 사용하기 위해 오버라이딩
   // WhoAreYou 를 오버라이딩 하지 않으면 Student의 함수가 호출됨
-  void WhoAreYou()
+  void WhoAreYou() const
   {
     SayName();
     cout << "I am " << Age() << " years old." << endl;
@@ -53,12 +53,12 @@ class UniversityStudent : public Student
 public:
   // 함수 오버로딩!
   // Student의 Age를 재사용 하기 위해 Student::Age() 호출
-  int Age()
+  int Age() const
   {
     return Student::Age() + 5;
   }
   // WhoAreYou 를 오버라이딩 하지 않으면 Student의 함수가 호출됨
-  // void WhoAreYou()
+  // void WhoAreYou() const
   // {
   //   SayName();
   //   cout << "I am" << Age() << "years old." << endl;
