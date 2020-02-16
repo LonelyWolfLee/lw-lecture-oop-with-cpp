@@ -6,6 +6,9 @@ class Player
 {
 public:
   virtual void play() const = 0;
+  virtual ~Player()
+  {
+  }
 };
 
 class APlayer : public Player
@@ -14,6 +17,10 @@ public:
   virtual void play() const
   {
     cout << "Play A" << endl;
+  }
+  virtual ~APlayer()
+  {
+    cout << "Destroy A" << endl;
   }
 };
 
@@ -24,6 +31,10 @@ public:
   {
     cout << "Play B" << endl;
   }
+  virtual ~BPlayer()
+  {
+    cout << "Destroy B" << endl;
+  }
 };
 
 class CPlayer : public Player
@@ -33,18 +44,27 @@ public:
   {
     cout << "Play C" << endl;
   }
+  virtual ~CPlayer()
+  {
+    cout << "Destroy C" << endl;
+  }
 };
 
 int main(int argc, char const *argv[])
 {
-  Player *player[3];
-  player[0] = new APlayer();
-  player[1] = new BPlayer();
-  player[2] = new CPlayer();
+  Player *players[3];
+  players[0] = new APlayer();
+  players[1] = new BPlayer();
+  players[2] = new CPlayer();
 
   for (int i = 0; i < 3; i++)
   {
-    player[i]->play();
+    players[i]->play();
+  }
+
+  for (int i = 0; i < 3; i++)
+  {
+    delete players[i];
   }
 
   return 0;
