@@ -20,6 +20,8 @@ public:
       line[y] = string(xMax, ' ');
     }
   }
+
+  // x, y의 지점에 val 에 해당하는 값을 그린다.
   void draw(int x, int y, string val)
   {
     if (x >= 0 && y >= 0 && x < xMax && y < yMax)
@@ -27,6 +29,8 @@ public:
       line[y].replace(x, 1, val);
     }
   }
+
+  // 전체 Canvas를 주어진 val 로 채운다.
   void clear(string val = " ")
   {
     for (int y = 0; y < yMax; y++)
@@ -37,6 +41,8 @@ public:
       }
     }
   }
+
+  // Canvas에 저장된 이미지를 출력한다.
   void print(const char *title = "<My Canvas>")
   {
     system("cls");
