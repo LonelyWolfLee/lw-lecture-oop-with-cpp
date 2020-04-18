@@ -9,6 +9,7 @@
  * BaseShape.h 의 Shape 클래스를 상속 받은 Line, Rect, VLine, HLine, Square 을 구현하시오
  * 
  * [조건]
+ * 모든 도형은 생성 시점에 각자가 필요한 값을 입력 받아서 저장 해야 한다.
  * 모든 도형(Shape)은 각자의 적절한 규칙으로 그리기(draw) 및 이동(move)이 가능해야 한다.
  * 
  * 1. Line (선)
