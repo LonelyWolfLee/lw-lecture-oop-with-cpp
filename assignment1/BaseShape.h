@@ -26,9 +26,13 @@ protected:
   Point p; // 형태의 기준 위치
 public:
   Shape(int x = 0, int y = 0) : p(x, y) {}
-  void draw(Canvas &canvas, string val = "O")
+  virtual void draw(Canvas &canvas, string val = "O")
   {
     canvas.draw(p.getX(), p.getY(), val);
+  }
+  virtual void move(int dx, int dy)
+  {
+    p.move(dx, dy);
   }
 };
 
