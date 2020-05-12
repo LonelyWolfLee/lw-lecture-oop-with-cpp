@@ -3,24 +3,36 @@
 
 #include <iostream>
 #include <cstring>
+#include <string>
 #define MAX_LINES 100
 
 using namespace std;
+
+#ifdef _WIN32
+const char *COMMAND = "cls";
+#elif
+const char *COMMAND = "clear";
+#endif
 
 class Canvas
 {
 private:
   string line[MAX_LINES];
   int xMax, yMax; // 맵의 크기
+  const char *title;
+  void clearScreen()
+  {
+  }
+
 public:
-  Canvas(int nx = 10, int ny = 10) : xMax(nx), yMax(ny)
+  Canvas(int nx = 72, int ny = 24, const char *title = "<My Canvas>")
+      : xMax(nx), yMax(ny), title(title)
   {
     for (int y = 0; y < yMax; y++)
     {
-      line[y] = string(xMax, ' ');
+      line[y] = string(xMax, '.');
     }
   }
-
   // x, y의 지점에 val 에 해당하는 값을 그린다.
   void draw(int x, int y, string val)
   {
@@ -31,7 +43,7 @@ public:
   }
 
   // 전체 Canvas를 주어진 val 로 채운다.
-  void clear(string val = " ")
+  void clear(string val = ".")
   {
     for (int y = 0; y < yMax; y++)
     {
@@ -43,9 +55,10 @@ public:
   }
 
   // Canvas에 저장된 이미지를 출력한다.
-  void print(const char *title = "<My Canvas>")
+  void print()
   {
-    system("cls");
+    system(COMMAND);
+
     cout << title << endl;
     for (int y = 0; y < yMax; y++)
     {

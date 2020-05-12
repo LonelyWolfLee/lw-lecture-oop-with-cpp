@@ -4,7 +4,7 @@ int main(int argc, char const *argv[])
 {
   // 이 부분은 Canvas의 사용법을 알려주기 위한 예제이다.
   // 실제로 과제 수행시에는 삭제를 하도록 한다.
-  Canvas canvas(48, 16);
+  Canvas canvas(72, 24, "<Sample>");
 
   canvas.draw(28, 5, "O");
   canvas.draw(29, 5, "O");
@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
   canvas.draw(31, 6, "O");
   canvas.draw(31, 7, "O");
   canvas.draw(32, 7, "O");
-  canvas.draw(33, 7, "O");
+  canvas.draw(63, 7, "O");
 
   canvas.draw(11, 11, "*");
   canvas.draw(12, 11, "*");
