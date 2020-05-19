@@ -1,8 +1,10 @@
 #include "MyShapes.h"
 #include "AnswerShapes.h"
 #include <cstdio>
+#include <cstdlib>
+#include <ctime>
 
-Canvas expected(40, 40), actual(40, 40);
+Canvas expected(50, 50), actual(50, 50);
 
 int LineTestCase[5][4] = {{3, 3, 3, 20},
                           {12, 16, 27, 16},
@@ -33,14 +35,40 @@ int LineTest()
         line1.draw(expected);
         line2.draw(actual);
 
-        if(expected != actual) 
+        if (expected != actual)
         {
             return score;
         }
     }
     score++;
 
+    for (int i = 0; i < 5; i++)
+    {
+        expected.clear();
+        actual.clear();
 
+        Answer::Line line1(LineTestCase[i][0], LineTestCase[i][1], LineTestCase[i][2], LineTestCase[i][3]);
+        Line line2(LineTestCase[i][0], LineTestCase[i][1], LineTestCase[i][2], LineTestCase[i][3]);
+
+        for (int n = 0; n < 10; n++)
+        {
+            expected.clear();
+            actual.clear();
+
+            int dx = rand() % 2;
+            int dy = rand() % 2;
+            line1.move(dx, dy);
+            line2.move(dx, dy);
+            line1.draw(expected);
+            line2.draw(actual);
+        }
+        
+        if (expected != actual)
+        {
+            return score;
+        }
+    }
+    score++;
 
     return score;
 }
@@ -120,6 +148,8 @@ int main(int argc, char const *argv[])
     string student(argv[1]);
 
     cerr << "Student No. : " << student << endl;
+    srand((unsigned int)time(NULL));
+
     scoring(student);
     return 0;
 }
