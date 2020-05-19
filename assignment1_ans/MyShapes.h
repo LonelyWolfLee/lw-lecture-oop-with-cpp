@@ -29,66 +29,71 @@
  *  
  **/
 
-class Line : public Shape
+namespace Answer
 {
-    Point q; //  선분의 다른 쪽 끝점 (한쪽 끝점은 p임)
-public:
-    Line(int x1 = 0, int y1 = 0, int x2 = 0, int y2 = 0)
-        : Shape(x1, y1), q(x2, y2) {}
-    void draw(Canvas &canvas, string color = "L")
+    class Line : public Shape
     {
-        int len = Max(Abs(q.getX() - p.getX()), Abs(q.getY() - p.getY()));
-        double x = p.getX(), y = p.getY();
-        double dx = (q.getX() - p.getX()) / (double)len, dy = (q.getY() - p.getY()) / (double)len;
-        for (int i = 0; i <= len; i++)
+        Point q; //  선분의 다른 쪽 끝점 (한쪽 끝점은 p임)
+    public:
+        Line(int x1 = 0, int y1 = 0, int x2 = 0, int y2 = 0)
+            : Shape(x1, y1), q(x2, y2) {}
+        void draw(Canvas &canvas, string color = "L")
         {
-            canvas.draw(Round(x), Round(y), color);
-            x += dx;
-            y += dy;
+            int len = Max(Abs(q.getX() - p.getX()), Abs(q.getY() - p.getY()));
+            double x = p.getX(), y = p.getY();
+            double dx = (q.getX() - p.getX()) / (double)len, dy = (q.getY() - p.getY()) / (double)len;
+            for (int i = 0; i <= len; i++)
+            {
+                canvas.draw(Round(x), Round(y), color);
+                x += dx;
+                y += dy;
+            }
         }
-    }
-    void move(int dx, int dy)
-    {
-        p.move(dx, dy);
-        q.move(dx, dy);
-    }
-};
+        void move(int dx, int dy)
+        {
+            p.move(dx, dy);
+            q.move(dx, dy);
+        }
+    };
 
-class Rect : public Shape
-{
-    int w, h; // 사각형의 가로와 세로 길이 (시작점은 p임)
-public:
-    Rect(int x = 0, int y = 0, int ww = 0, int hh = 0)
-        : Shape(x, y), w(ww), h(hh) {}
-    void draw(Canvas &canvas, string color = "R")
+    class Rect : public Shape
     {
-        for (int i = p.getX(); i <= p.getX() + w; i++)
+        int w, h; // 사각형의 가로와 세로 길이 (시작점은 p임)
+    public:
+        Rect(int x = 0, int y = 0, int ww = 0, int hh = 0)
+            : Shape(x, y), w(ww), h(hh) {}
+        void draw(Canvas &canvas, string color = "R")
         {
-            canvas.draw(i, p.getY(), color);     // 사각형의 윗변
-            canvas.draw(i, p.getY() + h, color); // 사각형의 아랫변
+            for (int i = p.getX(); i <= p.getX() + w; i++)
+            {
+                canvas.draw(i, p.getY(), color);     // 사각형의 윗변
+                canvas.draw(i, p.getY() + h, color); // 사각형의 아랫변
+            }
+            for (int i = p.getY(); i <= p.getY() + h; i++)
+            {
+                canvas.draw(p.getX(), i, color);     // 사각형의 좌변
+                canvas.draw(p.getX() + w, i, color); // 사각형의 우변
+            }
         }
-        for (int i = p.getY(); i <= p.getY() + h; i++)
-        {
-            canvas.draw(p.getX(), i, color);     // 사각형의 좌변
-            canvas.draw(p.getX() + w, i, color); // 사각형의 우변
-        }
-    }
-};
+    };
 
-class HLine : public Line
-{
-public:
-    HLine(int x = 0, int y = 0, int len = 0) : Line(x, y, x + len, y) {}
-};
-class VLine : public Line
-{
-public:
-    VLine(int x = 0, int y = 0, int len = 0) : Line(x, y, x, y + len) {}
-};
-class Square : public Rect
-{
-public:
-    Square(int x = 0, int y = 0, int w = 0) : Rect(x, y, w, w) {}
-};
+    class HLine : public Line
+    {
+    public:
+        HLine(int x = 0, int y = 0, int len = 0) : Line(x, y, x + len, y) {}
+    };
+    class VLine : public Line
+    {
+    public:
+        VLine(int x = 0, int y = 0, int len = 0) : Line(x, y, x, y + len) {}
+    };
+    class Square : public Rect
+    {
+    public:
+        Square(int x = 0, int y = 0, int w = 0) : Rect(x, y, w, w) {}
+    };
+} // namespace Answer
+
+
 
 #endif

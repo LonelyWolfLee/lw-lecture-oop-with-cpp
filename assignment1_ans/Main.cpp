@@ -3,6 +3,8 @@
 
 #define MAX_SIZE 200
 
+using namespace Answer;
+
 int main(int argc, char const *argv[])
 {
   /**
