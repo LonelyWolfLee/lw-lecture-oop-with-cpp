@@ -10,7 +10,7 @@ using namespace std;
 
 #ifdef _WIN32
 const char *COMMAND = "cls";
-#elif
+#else
 const char *COMMAND = "clear";
 #endif
 
