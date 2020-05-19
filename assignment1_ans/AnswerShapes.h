@@ -1,5 +1,5 @@
-#ifndef __SHAPES_H__
-#define __SHAPES_H__
+#ifndef __ANSWER_SHAPES_H__
+#define __ANSWER_SHAPES_H__
 #include "BaseShape.h"
 
 /**
