@@ -143,6 +143,7 @@ int main(int argc, char const *argv[])
     if (argc != 2)
     {
         cerr << "You need 1 parameeter for this program" << endl;
+        return 1;
     }
 
     string student(argv[1]);
