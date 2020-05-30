@@ -21,6 +21,13 @@ enum TestCase
     SQUARE
 };
 
+enum LengthType
+{
+    UNKNOWN,   // 아직 판단이 안된 경우
+    INCLUSIVE, // 길이가 자신의 위치를 포함하는 경우 (3 ~ 6 을 길이 4로 판단)
+    EXCLUSIVE  // 길이가 자신의 위치를 포함하지 않는 경우 (3 ~ 6 을 길이 3으로 판단)
+};
+
 int LineTest()
 {
     int score = 0;
