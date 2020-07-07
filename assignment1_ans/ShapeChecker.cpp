@@ -9,13 +9,13 @@ Canvas expected(50, 50), actual(50, 50);
 int ThreeValueTestCase[5][3] = {{3, 3, 20},
                                 {12, 16, 16},
                                 {3, 37, 3},
-                                {11, 14, 33},
-                                {4, 32, 26}};
+                                {11, 14, 12},
+                                {4, 32, 5}};
 int FourValueTestCase[5][4] = {{3, 3, 3, 20},
                                {12, 16, 27, 16},
                                {3, 37, 37, 3},
-                               {11, 14, 15, 33},
-                               {4, 32, 29, 26}};
+                               {11, 14, 15, 12},
+                               {4, 32, 29, 5}};
 
 enum TestCase
 {
@@ -38,6 +38,7 @@ LengthType type = UNKNOWN;
 
 int LineTest()
 {
+    cout << "********** LINE" << endl;
     int score = 0;
     for (int i = 0; i < 5; i++)
     {
@@ -90,6 +91,7 @@ int LineTest()
 
 int RectTest()
 {
+    cout << "********** RECT" << endl;
     int score = 0;
     {
         expected.clear();
@@ -105,7 +107,7 @@ int RectTest()
         else
         {
             actual.clear();
-            Rect rect3(1, 2, 2, 3);
+            Rect rect3(1, 2, 4, 5);
             rect3.draw(actual);
             if (expected == actual)
             {
@@ -124,7 +126,7 @@ int RectTest()
         actual.clear();
 
         Answer::Rect rect1(FourValueTestCase[i][0], FourValueTestCase[i][1], FourValueTestCase[i][2], FourValueTestCase[i][3]);
-        Rect rect2(FourValueTestCase[i][0], FourValueTestCase[i][1], FourValueTestCase[i][2] - type, FourValueTestCase[i][3] - type);
+        Rect rect2(FourValueTestCase[i][0], FourValueTestCase[i][1], FourValueTestCase[i][2] + type, FourValueTestCase[i][3] + type);
 
         rect1.draw(expected);
         rect2.draw(actual);
@@ -142,7 +144,7 @@ int RectTest()
         actual.clear();
 
         Answer::Rect rect1(FourValueTestCase[i][0], FourValueTestCase[i][1], FourValueTestCase[i][2], FourValueTestCase[i][3]);
-        Rect rect2(FourValueTestCase[i][0], FourValueTestCase[i][1], FourValueTestCase[i][2] - type, FourValueTestCase[i][3] - type);
+        Rect rect2(FourValueTestCase[i][0], FourValueTestCase[i][1], FourValueTestCase[i][2] + type, FourValueTestCase[i][3] + type);
 
         for (int n = 0; n < 10; n++)
         {
@@ -169,6 +171,7 @@ int RectTest()
 
 int HLineTest()
 {
+    cout << "********** HLINE" << endl;
     int score = 0;
 
     if (type == UNKNOWN)
@@ -186,7 +189,7 @@ int HLineTest()
         else
         {
             actual.clear();
-            HLine hline3(1, 2, 2);
+            HLine hline3(1, 2, 4);
             hline3.draw(actual);
             if (expected == actual)
             {
@@ -205,7 +208,7 @@ int HLineTest()
         actual.clear();
 
         Answer::HLine hline1(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2]);
-        HLine hline2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2]);
+        HLine hline2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2] + type);
 
         hline1.draw(expected);
         hline1.draw(actual);
@@ -223,7 +226,7 @@ int HLineTest()
         actual.clear();
 
         Answer::HLine hline1(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2]);
-        HLine hline2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2] - type);
+        HLine hline2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2] + type);
 
         for (int n = 0; n < 10; n++)
         {
@@ -250,6 +253,7 @@ int HLineTest()
 
 int VLineTest()
 {
+    cout << "********** VLINE" << endl;
     int score = 0;
 
     if (type == UNKNOWN)
@@ -267,7 +271,7 @@ int VLineTest()
         else
         {
             actual.clear();
-            VLine vline3(1, 2, 2);
+            VLine vline3(1, 2, 4);
             vline3.draw(actual);
             if (expected == actual)
             {
@@ -286,7 +290,7 @@ int VLineTest()
         actual.clear();
 
         Answer::VLine vline1(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2]);
-        VLine vline2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2]);
+        VLine vline2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2] + type);
 
         vline1.draw(expected);
         vline1.draw(actual);
@@ -304,7 +308,7 @@ int VLineTest()
         actual.clear();
 
         Answer::VLine vline1(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2]);
-        VLine vline2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2] - type);
+        VLine vline2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2] + type);
 
         for (int n = 0; n < 10; n++)
         {
@@ -331,6 +335,7 @@ int VLineTest()
 
 int SquareTest()
 {
+    cout << "********** SQUARE" << endl;
     int score = 0;
 
     if (type == UNKNOWN)
@@ -348,7 +353,7 @@ int SquareTest()
         else
         {
             actual.clear();
-            Square square3(1, 2, 2);
+            Square square3(1, 2, 4);
             square3.draw(actual);
             if (expected == actual)
             {
@@ -367,7 +372,7 @@ int SquareTest()
         actual.clear();
 
         Answer::Square square1(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2]);
-        Square square2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2]);
+        Square square2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2] + type);
 
         square1.draw(expected);
         square2.draw(actual);
@@ -385,7 +390,7 @@ int SquareTest()
         actual.clear();
 
         Answer::Square square1(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2]);
-        Square square2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2] - type);
+        Square square2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2] + type);
 
         for (int n = 0; n < 10; n++)
         {
@@ -410,7 +415,7 @@ int SquareTest()
     return score;
 }
 
-void scoring(string student)
+void scoring()
 {
     int score[5] = {0, 0, 0, 0, 0};
 
@@ -457,17 +462,8 @@ void scoring(string student)
 
 int main(int argc, char const *argv[])
 {
-    if (argc != 2)
-    {
-        cerr << "You need 1 parameeter for this program" << endl;
-        return 1;
-    }
-
-    string student(argv[1]);
-
-    cerr << "Student No. : " << student << endl;
     srand((unsigned int)time(NULL));
 
-    scoring(student);
+    scoring();
     return 0;
 }
