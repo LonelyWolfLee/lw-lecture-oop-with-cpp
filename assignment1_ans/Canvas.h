@@ -79,6 +79,7 @@ public:
       {
         if (canvas.line[y][x] != this->line[y][x])
         {
+          cout << canvas.line[y][x] << " != " << this->line[y][x] << endl;
           return false;
         }
       }
@@ -98,6 +99,7 @@ public:
       {
         if (canvas.line[y][x] != this->line[y][x])
         {
+          cout << canvas.line[y][x] << " != " << this->line[y][x] << endl;
           return true;
         }
       }
