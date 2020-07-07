@@ -67,6 +67,25 @@ public:
     cout << endl;
   }
 
+  bool operator==(const Canvas &canvas)
+  {
+    if (canvas.xMax != this->xMax || canvas.yMax != this->yMax)
+    {
+      return false;
+    }
+    for (int y = 0; y < yMax; y++)
+    {
+      for (int x = 0; x < xMax; x++)
+      {
+        if (canvas.line[y][x] != this->line[y][x])
+        {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
   bool operator!=(const Canvas &canvas)
   {
     if (canvas.xMax != this->xMax || canvas.yMax != this->yMax)
