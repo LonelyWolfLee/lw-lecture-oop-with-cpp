@@ -211,7 +211,7 @@ int HLineTest()
         HLine hline2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2] + type);
 
         hline1.draw(expected);
-        hline1.draw(actual);
+        hline2.draw(actual);
 
         if (expected != actual)
         {
@@ -293,7 +293,7 @@ int VLineTest()
         VLine vline2(ThreeValueTestCase[i][0], ThreeValueTestCase[i][1], ThreeValueTestCase[i][2] + type);
 
         vline1.draw(expected);
-        vline1.draw(actual);
+        vline2.draw(actual);
 
         if (expected != actual)
         {
